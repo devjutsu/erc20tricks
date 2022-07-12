@@ -1,4 +1,3 @@
-require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
 require("@openzeppelin/hardhat-upgrades");
 require("@nomiclabs/hardhat-etherscan");
@@ -9,7 +8,7 @@ module.exports = {
   solidity: "0.8.15",
   networks: {
     rinkeby: {
-      url: process.env.INFURA_URL,
+      url: 'https://rinkeby.infura.io/v3/749c7c4e8f6543cf85b40be1f5fe4e72',
       accounts: [process.env.PRIVATE_KEY],
     },
     polygon: {

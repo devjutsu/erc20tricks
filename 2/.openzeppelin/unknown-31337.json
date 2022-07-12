@@ -1,0 +1,14 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [],
+  "impls": {
+    "a676b9cf3c9947c3dac2cd532405c6500f9a8291dcfe1125716711a1b60575df": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "txHash": "0xff489394b189bda95e8152f57a5872d713210c5b984d2e84637ce03ede6d419b",
+      "layout": {
+        "storage": [],
+        "types": {}
+      }
+    }
+  }
+}

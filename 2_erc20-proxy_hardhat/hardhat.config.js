@@ -1,12 +1,13 @@
 require("@nomiclabs/hardhat-ethers");
 require("@openzeppelin/hardhat-upgrades");
 require("@nomiclabs/hardhat-etherscan");
+require('dotenv').config();
 
 module.exports = {
   solidity: "0.8.15",
   networks: {
     rinkeby: {
-      url: 'https://rinkeby.infura.io/v3/de09eed5ccef4bc48a6caef64560b42e',
+      url: 'https://rinkeby.infura.io/v3/749c7c4e8f6543cf85b40be1f5fe4e72',
       accounts: [process.env.PRIVATE_KEY],
     },
     polygon: {

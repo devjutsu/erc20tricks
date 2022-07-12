@@ -5,11 +5,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract MyERC20UpgradebleV1 is Initializable, ERC20Upgradeable, OwnableUpgradeable {
-    /*constructor(uint256 initialSupply) ERC20("TestToken1", "TTK1") {
-            _mint(msg.sender, initialSupply*10**decimals());
-    }*/
-
+contract Dummix is Initializable, ERC20Upgradeable, OwnableUpgradeable {
     function initialize(uint256 initialSupply) external initializer {
         __ERC20_init("Dummix", "DUM");
         __Ownable_init();
