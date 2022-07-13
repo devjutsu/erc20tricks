@@ -6,7 +6,12 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
 
-contract MyERC20UpgradebleV3 is Initializable, ERC20Upgradeable, OwnableUpgradeable, ERC20BurnableUpgradeable {
+contract MyERC20UpgradebleV3 is
+    Initializable,
+    ERC20Upgradeable,
+    OwnableUpgradeable,
+    ERC20BurnableUpgradeable
+{
     /*constructor(uint256 initialSupply) ERC20("TestToken1", "TTK1") {
             _mint(msg.sender, initialSupply*10**decimals());
     }*/
@@ -17,7 +22,11 @@ contract MyERC20UpgradebleV3 is Initializable, ERC20Upgradeable, OwnableUpgradea
         _mint(msg.sender, initialSupply*10**decimals());
     }*/
 
-    function mint(address to, uint amount) external onlyOwner {
+    function mint(address to, uint256 amount) external onlyOwner {
         _mint(to, amount);
+    }
+
+    function test() external pure returns (string memory) {
+        return "hello";
     }
 }

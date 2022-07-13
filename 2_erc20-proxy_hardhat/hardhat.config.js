@@ -3,6 +3,8 @@ require("@openzeppelin/hardhat-upgrades");
 require("@nomiclabs/hardhat-etherscan");
 require('dotenv').config();
 
+console.log(process.env.PRIVATE_KEY);
+
 module.exports = {
   solidity: "0.8.15",
   networks: {
