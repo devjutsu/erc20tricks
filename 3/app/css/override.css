@@ -1,0 +1,51 @@
+body {
+    background-color: darkcyan;
+} 
+header {
+    background-color:  #005B5B;
+}
+header.scrolled {
+    background-color: darkcyan;
+}
+.rocket-btn {
+    background-color: #FFA500;
+}
+.rocket-btn.rocket-btn-accent {
+    background-color: #ff4500CC;
+}
+section.light-section {
+    background-color: darkcyan;
+}
+section.dark-section {
+    background-color: #005B5B;
+}
+footer a:hover {
+    background-color: orangered;
+}
+hr {
+    border: 1px orangered solid;
+    border-radius: 0;
+    max-width: 10rem;
+}
+header ul.menu>li>a:hover {
+    color: orangered;
+}
+header .logo {
+    color: #FFFFFFAA;
+}
+.rocket-btn.rocket-btn-animated-icon {
+    background-color: #005B5B;
+}
+
+.pricing.pricing-active .plan-signup-btn .rocket-btn {
+    background-color: #ff4500CC;
+}
+input {
+    background-color: #88FFFF;
+}
+.hero-header {
+    color: #FFFFFFAA;
+}
+h1 span {
+    color: #ff4500AA;
+}
