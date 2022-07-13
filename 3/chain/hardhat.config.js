@@ -9,8 +9,8 @@ module.exports = {
       url: 'https://rinkeby.infura.io/v3/749c7c4e8f6543cf85b40be1f5fe4e72',
       accounts: [process.env.PRIVATE_KEY],
     },
-    polygon: {
-      url: 'https://polygon-rpc.com',
+    mumbai: {
+      url: 'https://rpc-mumbai.matic.today',
       accounts: [process.env.PRIVATE_KEY],
     }
   },
