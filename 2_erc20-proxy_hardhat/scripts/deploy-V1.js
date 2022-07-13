@@ -1,9 +1,9 @@
 const { ethers, upgrades } = require("hardhat");
 
 async function main() {
-    const Dummix = await ethers.getContractFactory("Dummix");
-    console.log("Deploying MyERC20Upgradeble...");
-    const box = await upgrades.deployProxy(Dummix, [10000], {
+    const Dummix = await ethers.getContractFactory("MyERC20UpgradebleV1");
+    console.log("Deploying Dummix...");
+    const box = await upgrades.deployProxy(Dummix, [100], {
         initializer: "initialize",
     });
     await box.deployed();
