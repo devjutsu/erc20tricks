@@ -1,7 +1,7 @@
 let web3 = new web3js.myweb3(window.ethereum);
 let addr;
 
-const sttaddr = "0xdd23f59be25ab34d4d7f435fe1a36fa2cab4dde5";
+const sttaddr = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 const sttabi = [
   {
     "inputs": [],
@@ -115,7 +115,7 @@ function addToWallet() {
       params: {
         'type': 'ERC20',
         'options': {
-          'address': '0xdd23f59be25ab34d4d7f435fe1a36fa2cab4dde5',
+          'address': '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
           'symbol': 'MTWP',
           'decimals': '18'
         },
