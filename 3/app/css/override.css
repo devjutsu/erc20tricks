@@ -1,4 +1,4 @@
-body {
+html, body {
     background-color: darkcyan;
 } 
 header {
@@ -48,4 +48,13 @@ input {
 }
 h1 span {
     color: #ff4500AA;
+}
+.pricing.pricing-active {
+    background-color: #003B3B;
+}
+footer .bottom-bar {
+    background-color: #003B3B;
+}
+.preloader-container {
+    background-color: #003B3B;
 }
