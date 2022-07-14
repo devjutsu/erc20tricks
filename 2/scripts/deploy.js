@@ -1,13 +1,17 @@
 const { ethers, upgrades } = require("hardhat");
 
 async function main() {
-    const Dummix = await ethers.getContractFactory("Dummix");
-    console.log("Deploying Dummix...");
-    const box = await upgrades.deployProxy(Dummix, [100], {
+    await hre.run('compile');
+    
+    const Dummix1 = await ethers.getContractFactory("DummixV1");
+    console.log("Deploying Dummix v1...");
+    const dummix1 = await upgrades.deployProxy(Dummix1, [100], {
         initializer: "initialize",
     });
-    await box.deployed();
-    console.log("Dummix deployed to:", box.address);
+    await dummix1.deployed();
+    console.log("Dummix1 deployed to:", dummix1.address);
+
+    
 }
 
 main();
