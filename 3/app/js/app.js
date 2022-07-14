@@ -1,7 +1,7 @@
 let web3 = new web3js.myweb3(window.ethereum);
 let addr;
 
-const sttaddr = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+const sttaddr = "0x3b2aA15D34213F933Df8127ef523Ffa9e6e5aDcf";
 const sttabi = [
   {
     "inputs": [],
@@ -46,10 +46,10 @@ const buystt = async () => {
       'error'
     )
   }
-  if (chainId !== 4) { //Change for LIVE
+  if (chainId !== 5) { //Change for LIVE
     Swal.fire(
       'Connect Alert',
-      'Please Connect on Rinkeby', //Change for LIVE
+      'Please Connect on Goerli', //Change for LIVE
       'error'
     )
   }
@@ -115,8 +115,8 @@ function addToWallet() {
       params: {
         'type': 'ERC20',
         'options': {
-          'address': '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
-          'symbol': 'MTWP',
+          'address': '0x3b2aA15D34213F933Df8127ef523Ffa9e6e5aDcf',
+          'symbol': 'DUM',
           'decimals': '18'
         },
       },

@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MyTokenWithPresale is ERC20, Ownable {
+contract DUMMEX is ERC20, Ownable {
     uint256 public immutable finalTotalSupply = 10000 * 10**decimals();
     uint256 public immutable presaleMaxSupply = 1000 * 10**decimals();
 
@@ -13,7 +13,7 @@ contract MyTokenWithPresale is ERC20, Ownable {
 
     uint8 public stage = 0; //0 - nothing, 1 - first presale round, 2 - second presale round, 3 - token launched
 
-    constructor() ERC20("MyTokenWithPresale", "MTWP") {}
+    constructor() ERC20("Dummex", "DUM") {}
 
     function buyOnPresale() public payable {
         require(

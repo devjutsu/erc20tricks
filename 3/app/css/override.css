@@ -20,7 +20,7 @@ section.dark-section {
     background-color: #005B5B;
 }
 footer a:hover {
-    background-color: orangered;
+    color: orangered;
 }
 hr {
     border: 1px orangered solid;
