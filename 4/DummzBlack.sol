@@ -38,7 +38,7 @@ contract DummzBlack is ERC20, Ownable, Initializable, ERC20Upgradeable, OwnableU
         return false;
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override(ERC20) {
+    function _beforeTokenTransfer(address from, address to, uint256 amount) internal whenNotPaused override(ERC20) {
         super._beforeTokenTransfer(from, to, amount);
         require(!isBlacklisted(msg.sender), "Sorry, this user is blacklisted!");
 
@@ -66,10 +66,7 @@ contract DummzBlack is ERC20, Ownable, Initializable, ERC20Upgradeable, OwnableU
     }
 
     function buyOnPresale() public payable {
-        require(
-            presaleStage == 1 || presaleStage == 2,
-            "Sorry, no presale is happening at the moment."
-        );
+        require(presaleStage == 1 || presaleStage == 2, "Sorry, no presale is happening at the moment.");
 
         uint256 cost = presaleCost1;
         if (stage == 2) cost = presaleCost2;
@@ -86,4 +83,13 @@ contract DummzBlack is ERC20, Ownable, Initializable, ERC20Upgradeable, OwnableU
         _mint(msg.sender, amount);
     }
 
+    function pause() public onlyOwner {
+        _pause();
+    }
+
+    function unpause() public onlyOwner {
+        _unpause();
+    }
+
+    // add selling fee
 }
