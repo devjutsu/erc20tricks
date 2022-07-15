@@ -8,33 +8,35 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
-    uint8 public constant dec = 0;
-    uint256 public constant finalTotalSupply = 1000 * 10**dec;
-    uint256 public constant presaleMaxSupply = 500 * 10**dec;
+    uint256 public constant finalTotalSupply = 1000;
     uint256 public constant ownershipMaxPercent = 5;
+    uint256 public constant presaleMaxSupply = 900;
+
     mapping(address => uint8) public addressListing;
 
-    uint8 public presaleStage;
     uint256 public presaleCounter;
-    uint256 public presaleInitialCost;
+    uint256 public initialCost;
+    uint8 public presaleStage;
+    uint256 public initialSupply;
 
-    function initialize(uint256 initialSupply) external initializer {
-        presaleStage = 0;
+    function initialize(uint256 _initialSupply) external initializer {
+        presaleStage = 1;
         presaleCounter = 0;
-        presaleInitialCost = 0.01 ether;
+        initialCost = 0.001 ether;
 
         __ERC20_init("DummzBlack", "DUB");
         __Ownable_init();
-        _mint(msg.sender, initialSupply * 10**dec);
+        initialSupply = _initialSupply;
+        _mint(msg.sender, _initialSupply);
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
-        uint256 newSupply = totalSupply() + amount * 10**dec;
+        uint256 newSupply = totalSupply() + amount * 10**decimals();
         require(newSupply <= finalTotalSupply, "Final supply reached!");
-        _mint(to, amount * 10**dec);
+        _mint(to, amount * 10**decimals());
     }
 
-    function decimals() public view override returns (uint8) {
+    function decimals() public pure override returns (uint8) {
         return 0;
     }
 
@@ -63,15 +65,15 @@ contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
         }
     }
 
-    function blacklist(address _user) external {
+    function blacklist(address _user) external onlyOwner {
         addressListing[_user] = 2;
     }
 
-    function removeBlacklist(address _user) external {
+    function removeBlacklist(address _user) external onlyOwner {
         addressListing[_user] = 0;
     }
 
-    function setStage(uint8 _stage) public onlyOwner {
+    function setStage(uint8 _stage) external onlyOwner {
         presaleStage = _stage;
     }
 
@@ -86,9 +88,8 @@ contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
             "Sorry, no presale is happening at the moment."
         );
 
-        uint256 cost = presaleInitialCost * (10**presaleStage);
-
-        uint256 amount = (msg.value * 10**dec) / cost;
+        uint256 price = initialCost * (10**((totalSupply() - initialSupply) / 10));
+        uint256 amount = (msg.value * 10**decimals()) / price;
         require(amount > 1, "Sorry, too small amount!");
 
         uint256 newSupply = totalSupply() + amount;
@@ -102,6 +103,4 @@ contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
 
         _mint(msg.sender, amount);
     }
-
-    // add selling fee
 }
