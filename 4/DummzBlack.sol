@@ -1,14 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract DummzBlack is ERC20, Ownable, Pausable, Initializable, ERC20Upgradeable, OwnableUpgradeable {
+contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
     uint256 public immutable finalTotalSupply = 1000*10 ** decimals();
     uint256 public immutable presaleMaxSupply = 500*10 ** decimals();
     mapping(address => uint8) public addressListing;
@@ -39,7 +38,7 @@ contract DummzBlack is ERC20, Ownable, Pausable, Initializable, ERC20Upgradeable
         return false;
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount) internal whenNotPaused override(ERC20) {
+    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override(ERC20Upgradeable) {
         super._beforeTokenTransfer(from, to, amount);
         require(!isBlacklisted(msg.sender), "Sorry, this user is blacklisted!");
 
@@ -81,14 +80,6 @@ contract DummzBlack is ERC20, Ownable, Pausable, Initializable, ERC20Upgradeable
         require(presaleCounter <= presaleMaxSupply, "Sorry, final presale supply reached!");
 
         _mint(msg.sender, amount);
-    }
-
-    function pause() public onlyOwner {
-        _pause();
-    }
-
-    function unpause() public onlyOwner {
-        _unpause();
     }
 
     // add selling fee
