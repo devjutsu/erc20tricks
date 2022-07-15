@@ -67,11 +67,10 @@ contract DummzBlack is ERC20, Ownable, Pausable, Initializable, ERC20Upgradeable
     }
 
     function buyOnPresale() public payable {
-        require(presaleStage == 1 || presaleStage == 2, "Sorry, no presale is happening at the moment.");
+        require(presaleStage > 0, "Sorry, no presale is happening at the moment.");
 
-        uint256 cost = presaleCost1;
-        if (stage == 2) cost = presaleCost2;
-
+        uint256 cost = presaleInitialCost * (10 ** presaleStage);
+        
         uint256 amount = (msg.value * 10**decimals()) / cost;
         require(amount > 1, "Sorry, too small amount!");
 
