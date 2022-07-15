@@ -8,9 +8,9 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
-    uint256 public immutable finalTotalSupply = 1000*10 ** decimals();
-    uint256 public immutable presaleMaxSupply = 500*10 ** decimals();
-    uint256 public immutable ownershipMaxPercent = 5;
+    uint256 public constant finalTotalSupply = 1000*10 ** 18;
+    uint256 public constant presaleMaxSupply = 500*10 ** 18;
+    uint256 public constant ownershipMaxPercent = 5;
     mapping(address => uint8) public addressListing;
     
     uint8 public presaleStage;

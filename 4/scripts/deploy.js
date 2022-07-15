@@ -5,7 +5,7 @@ async function main() {
     
     const Dummz = await ethers.getContractFactory("DummzBlack");
     console.log("Deploying Dummz...");
-    const dummz = await upgrades.deployProxy(Dummz, [100], {
+    const dummz = await upgrades.deployProxy(Dummz, [10], {
         initializer: "initialize",
     });
     await dummz.deployed();
