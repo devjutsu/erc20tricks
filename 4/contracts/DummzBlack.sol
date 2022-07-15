@@ -10,16 +10,19 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
     uint256 public immutable finalTotalSupply = 1000*10 ** decimals();
     uint256 public immutable presaleMaxSupply = 500*10 ** decimals();
+    uint256 public immutable ownershipMaxPercent = 5;
     mapping(address => uint8) public addressListing;
     
-    uint256 public ownershipMaxPercent = 5;
-
-    uint8 public presaleStage = 0;
-    uint256 public presaleCounter = 0;
-    uint256 public presaleInitialCost = 0.01 ether;
+    uint8 public presaleStage;
+    uint256 public presaleCounter;
+    uint256 public presaleInitialCost;
 
 
     function initialize(uint256 initialSupply) external initializer {
+        presaleStage = 0;
+        presaleCounter = 0;
+        presaleInitialCost = 0.01 ether;
+
         __ERC20_init("DummzBlack", "DUB");
         __Ownable_init();
         _mint(msg.sender, initialSupply*10**decimals());
