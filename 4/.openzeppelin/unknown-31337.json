@@ -2,19 +2,19 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "txHash": "0x71bf72a56d3206eda518de595c488e6648a17a44a536b8c5ed2bad5a2606348e"
+    "txHash": "0x79c48dcc49cb9d8c730f32edeedd973277f49cbb35dd56d265d6883eba041a00"
   },
   "proxies": [
     {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0x3d288bb870defdc225abce776bc1b86946fed2acdfb22ec908e7a31efbe2c0d7",
+      "txHash": "0x5577012e89ba3a5a70f599e19fd281d9b3f65a990de2a3b0487235f3af42e2d8",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "9f21112ee3a17a9baaa2cc20117f14cd6d95565d55b72ebaf892a24df6991426": {
+    "93c0f12cb2b2cb5e31c2d5f7576e85e9490dc33efbd9796f8b86518b8b31199a": {
       "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0xf13fcf5924459081ac6538719dc12584924025e2b193b6f4d5e69c0e2c4ca675",
+      "txHash": "0xb5073d29fbcd485abaf774fbaad4755b09944c806fb3bf9c949a05f9323cba46",
       "layout": {
         "storage": [
           {
@@ -112,7 +112,7 @@
             "slot": "151",
             "type": "t_mapping(t_address,t_uint8)",
             "contract": "DummzBlack",
-            "src": "contracts/DummzBlack.sol:14"
+            "src": "contracts/DummzBlack.sol:15"
           },
           {
             "label": "presaleStage",
@@ -120,7 +120,7 @@
             "slot": "152",
             "type": "t_uint8",
             "contract": "DummzBlack",
-            "src": "contracts/DummzBlack.sol:16"
+            "src": "contracts/DummzBlack.sol:17"
           },
           {
             "label": "presaleCounter",
@@ -128,7 +128,7 @@
             "slot": "153",
             "type": "t_uint256",
             "contract": "DummzBlack",
-            "src": "contracts/DummzBlack.sol:17"
+            "src": "contracts/DummzBlack.sol:18"
           },
           {
             "label": "presaleInitialCost",
@@ -136,7 +136,7 @@
             "slot": "154",
             "type": "t_uint256",
             "contract": "DummzBlack",
-            "src": "contracts/DummzBlack.sol:18"
+            "src": "contracts/DummzBlack.sol:19"
           }
         ],
         "types": {
