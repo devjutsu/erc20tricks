@@ -2,22 +2,23 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract DummzBlack is ERC20, Ownable, Initializable, ERC20Upgradeable, OwnableUpgradeable {
-    uint256 public immutable finalTotalSupply = 100*10 ** decimals();
-    uint256 public immutable presaleMaxSupply = 50*10 ** decimals();
+contract DummzBlack is ERC20, Ownable, Pausable, Initializable, ERC20Upgradeable, OwnableUpgradeable {
+    uint256 public immutable finalTotalSupply = 1000*10 ** decimals();
+    uint256 public immutable presaleMaxSupply = 500*10 ** decimals();
     mapping(address => uint8) public addressListing;
     
     uint256 public ownershipMaxPercent = 5;
 
     uint8 public presaleStage = 0;
     uint256 public presaleCounter = 0;
-    uint256 public presaleCost1 = 0.05 ether;
-    uint256 public presaleCost2 = 0.1 ether;
+    uint256 public presaleInitialCost = 0.01 ether;
+
 
     function initialize(uint256 initialSupply) external initializer {
         __ERC20_init("DummzBlack", "DUB");
