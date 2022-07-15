@@ -8,7 +8,7 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
-    uint8 public constant dec = 18;
+    uint8 public constant dec = 0;
     uint256 public constant finalTotalSupply = 1000 * 10**dec;
     uint256 public constant presaleMaxSupply = 500 * 10**dec;
     uint256 public constant ownershipMaxPercent = 5;
@@ -32,6 +32,10 @@ contract DummzBlack is Initializable, ERC20Upgradeable, OwnableUpgradeable {
         uint256 newSupply = totalSupply() + amount * 10**dec;
         require(newSupply <= finalTotalSupply, "Final supply reached!");
         _mint(to, amount * 10**dec);
+    }
+
+    function decimals() public view override returns (uint8) {
+        return 0;
     }
 
     function isBlacklisted(address _user) public view returns (bool) {
